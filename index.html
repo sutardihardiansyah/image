@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicomatic/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicomatic/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicomatic/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicomatic/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicomatic/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicomatic/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicomatic/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicomatic/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="favicomatic/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="favicomatic/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="favicomatic/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicomatic/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="favicomatic/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+  <title>Parallax</title>
+
+  <style>
+    .preloader {
+      background: -webkit-gradient(linear, right top, left top, from(#2e19a7), to(#ae0ee9));
+      background: linear-gradient(to left, #2e19a7, #ae0ee9);
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 9999999;
+    }
+
+    .preloader .spinner {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 100%;
+      -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+      animation: sk-scaleout 1.0s infinite ease-in-out;
+    }
+
+    .profil.active .img-profile:before {
+      border-radius: 100%;
+      content: '';
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(157, 91, 254)), to(rgb(56, 144, 254)));
+      background-image: linear-gradient(180deg, rgb(157, 91, 254) 0%, rgb(56, 144, 254) 100%);
+      padding: 5px;
+      width: 160px;
+      height: 160px;
+      top: -4px;
+      left: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .char {
+      position: relative;
+      height: 725px;
+      margin-top: -80px;
+    }
+
+    .profil {
+      position: absolute;
+      transition: all 1s ease;
+      text-align: center;
+    }
+
+    .profil.active .img-profile {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 24px;
+      position: relative;
+    }
+
+    .profil:not(.active) {
+      -webkit-transform: scale(0.55);
+      transform: scale(0.55);
+      z-index: 99;
+    }
+
+    .profil.position-1 {
+      -webkit-transform: scale(0.55);
+      transform: scale(0.55);
+    }
+
+    .profil.position-2 {
+      left: -40px;
+      top: 105px;
+    }
+
+    .profil.position-3 {
+      left: -60px;
+      top: 240px;
+      transform: scale(.40)
+    }
+
+    .profil.position-4 {
+      left: 55px;
+      top: 380px;
+    }
+
+    .profil.active {
+      top: 10%;
+      left: 50%;
+      width: 70%;
+      z-index: 10;
+      transform: translateX(-50%)
+    }
+
+
+    .profil.active .img-profile img {
+      max-width: 152px;
+      margin: 0 auto 24px;
+      border: 0;
+    }
+
+    .profil .img-profile img {
+      border-radius: 50%;
+      cursor: pointer;
+      border: 8px solid #d1e9ff;
+    }
+
+
+
+    @media only screen and (max-width: 479px) and (min-width: 360px) {
+      .profil.active .img-profile img {
+        max-width: 80px;
+      }
+    }
+
+    @media only screen and (max-width: 479px) and (min-width: 360px) {
+      .profil.active {
+        width: 80%;
+      }
+    }
+
+    @media only screen and (max-width: 479px) and (min-width: 360px) {
+      .profil.active .img-profile::before {
+        padding: 5px;
+        width: 88px;
+        height: 88px;
+        top: -4px;
+        left: 35px;
+      }
+    }
+
+    @media only screen and (max-width: 479px) and (min-width: 360px) {
+      .profil.position-2 {
+        left: -60px;
+        top: 50px;
+      }
+    }
+
+    @media only screen and (max-width: 479px) and (min-width: 360px) {
+      .profil:not(.active) {
+        -webkit-transform: scale(0.25);
+        transform: scale(0.25);
+      }
+    }
+
+    @media only screen and (max-width: 767px) and (min-width: 480px) {
+      .profil:not(.active) {
+        -webkit-transform: scale(0.55);
+        transform: scale(0.35);
+      }
+    }
+
+    @media only screen and (max-width: 991px) and (min-width: 768px) {
+      .profil:not(.active) {
+        -webkit-transform: scale(0.55);
+        transform: scale(0.35);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="preloader" style="display: none">
+    <div class="d-table">
+      <div class="d-table-cell align-middle">
+        <div class="spinner">
+          <div class="double-bounce1"></div>
+          <div class="double-bounce2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <!--start section heading-->
+      <div class="col-md-8 offset-md-2">
+        <div class="section-heading text-center">
+          <h5>Sudah 1200++ siswa yang bergabung</h5>
+          <h2>Apa Kata Mereka?</h2>
+          <p>Mari kita simak testimonial dari teman-teman yang sudah mengikuti kelas ini.</p>
+        </div>
+      </div>
+      <!--end section heading-->
+    </div>
+
+    <div class="char">
+      <div class="profil active position-1" data-position="1">
+        <div class="img-profile">
+          <img src="img/char/chopper3.png" alt="chopper2">
+        </div>
+        <div class="info-profile">
+          <h3 class="text-center">Chopper</h3>
+        </div>
+      </div>
+
+      <div class="profil inactive position-2" data-position="2">
+        <div class="img-profile">
+          <img src="img/char/luffy2.png" alt="chopper2">
+        </div>
+        <div class="info-profile">
+          <h3 class="text-center">Luffy</h3>
+        </div>
+      </div>
+
+      <div class="profil inactive position-3" data-position="3">
+        <div class="img-profile">
+          <img src="img/char/zoro2.png" alt="chopper2">
+        </div>
+        <div class="info-profile">
+          <h3 class="text-center">Zoro</h3>
+        </div>
+      </div>
+
+      <div class="profil inactive position-4" data-position="4">
+        <div class="img-profile">
+          <img src="img/char/sanji2.png" alt="chopper2">
+        </div>
+        <div class="info-profile">
+          <h3 class="text-center">Sanji</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      $('.profil').on('click', function (event) {
+        event.preventDefault();
+
+        var active = $(this).hasClass('active');
+
+        var parent = $(this).parents('.char');
+
+        if (!active) {
+          var activeBlock = parent.find('.profil.active');
+
+          var currentPos = $(this).attr('data-position');
+
+          var newPos = activeBlock.attr('data-position');
+
+          activeBlock.removeClass('active').removeClass(newPos).addClass('inactive').removeClass('position-' +
+            newPos).addClass('position-' + currentPos);
+          activeBlock.attr('data-position', currentPos);
+
+          $(this).addClass('active').removeClass('inactive').removeClass(currentPos).addClass('position-' +
+            newPos).removeClass('position-' + currentPos)
+          $(this).attr('data-position', newPos);
+
+        }
+      });
+
+    })
+    $(window).on('load', function () {
+      $('.preloader').fadeOut(500);
+    });
+  </script>
+
+</body>
+
+</html>

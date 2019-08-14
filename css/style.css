@@ -1,0 +1,126 @@
+body {
+  height: 3000px;
+}
+
+#content1,
+#content2 {
+  overflow: hidden !important;
+}
+
+.content-header {
+  width: 100%;
+  height: 100vh;
+  background: url('../img/sea.jpg');
+  background-size: cover;
+}
+
+#ace {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* bagian 2 */
+.main {
+  width: 100%;
+  height: 100vh;
+  background: url('../img/sunny.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.main>h1 {
+  position: relative;
+  display: block;
+  color: white;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  top: 100px;
+  left: 0;
+  transition: .6s;
+}
+
+.frame {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  padding: 20px;
+  background-color: white;
+  opacity: .5;
+  overflow: hidden;
+  top: 120px;
+  left: 0;
+  transition: .6s
+}
+
+.frame p {
+  position: relative;
+  font-size: 17px;
+  color: rgb(92, 84, 84);
+  text-align: justify;
+}
+
+/* bagian 3 */
+#content3 {
+  width: 100%;
+  height: 100vh;
+  background: url('../img/ace.png');
+  background-size: cover;
+  overflow: hidden;
+}
+
+.char {
+  display: inline-block;
+  width: 180px;
+  height: 180px;
+  border-radius: 5px;
+  border: solid 3px grey;
+  cursor: pointer;
+}
+
+.card-body {
+  width: auto !important;
+  height: 500px !important;
+}
+
+#luffy {
+  background: url('../img/char/luffy.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#robin {
+  background: url('../img/char/robin.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: -140px;
+}
+
+#zoro {
+  background: url('../img/char/zoro.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: -100px;
+}
+
+#usopp {
+  background: url('../img/char/usopp.jpg');
+  background-size: cover;
+}
+
+#sanji {
+  background: url('../img/char/sanji.png');
+  background-size: cover;
+}
+
+#chopper2 {
+  background: url('../img/char/chopper2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#brook {
+  background: url('../img/char/brook.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: -140px;
+}
